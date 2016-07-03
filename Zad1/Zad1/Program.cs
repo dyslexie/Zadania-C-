@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Zad1
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             byte liczba = 6;
             long wynik = Silnia(liczba);
@@ -19,7 +15,7 @@ namespace Zad1
             Console.ReadKey();
         }
 
-        static long Silnia(byte argument)
+        private static long Silnia(byte argument)
         {
             if (argument == 0)
                 return 1;
@@ -29,7 +25,7 @@ namespace Zad1
 
             long result = 1;
 
-            for (int i = 1; i < argument+1; i++)
+            for (int i = 1; i < argument + 1; i++)
             {
                 result = result * i;
             }
