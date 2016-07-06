@@ -6,7 +6,7 @@ namespace Zad2
     {
         private static void Main(string[] args)
         {
-            int[] tablica = new int[5];
+            int[] tablica = new int[10];
             tablica = CiagFibonacciego(tablica);
 
             int j = 0;

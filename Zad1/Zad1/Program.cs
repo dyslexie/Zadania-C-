@@ -6,12 +6,10 @@ namespace Zad1
     {
         private static void Main(string[] args)
         {
-            byte liczba = 6;
+            byte liczba = 22;
             long wynik = Silnia(liczba);
 
             Console.WriteLine("Wynik operacji " + liczba + "! = " + wynik);
-
-            wynik = Silnia(22); //Ta operacja spowoduje wystąpienie wyjątku ArgumentOutOfRange.
             Console.ReadKey();
         }
 
@@ -20,16 +18,19 @@ namespace Zad1
             if (argument == 0)
                 return 1;
 
-            if (argument >= 21) //Gdy przekroczono zakres long.
-                throw new ArgumentOutOfRangeException();
-
             long result = 1;
 
             for (int i = 1; i < argument + 1; i++)
             {
+                long resultCopy = result;
                 result = result * i;
-            }
 
+                if (result < result / i)
+                {
+                    Console.WriteLine("Podano zbyt dużą liczbę. Zwrócono możliwie największy wynik operacji, tj. 21!.");
+                    return resultCopy;
+                }
+            }
             return result;
         }
     }
