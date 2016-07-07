@@ -31,7 +31,7 @@ namespace Zad5
 
                 isConvertable = Int32.TryParse(Console.ReadLine(), out userNumber);
 
-                if (isConvertable == false || userNumber>10 || userNumber<1)
+                if (isConvertable == false || userNumber > 10 || userNumber < 1)
                     Console.WriteLine("Podano nieprawidłowe dane.");
 
                 ++attempt;
@@ -39,7 +39,15 @@ namespace Zad5
             while (number != userNumber);
 
             Console.WriteLine("Brawo, udało Ci się odgadnąć wylosowaną liczbę za " + attempt + " podejściem!");
-            Console.WriteLine("\nCzy chcesz zagrać jeszcze raz? \n1 - TAK; 0 - NIE");
+            Console.WriteLine("\nCzy chcesz zagrać jeszcze raz? \n1 - TAK; 0 - NIE\n");
+
+            Int32.TryParse(Console.ReadLine(), out userNumber);
+
+            if (userNumber == 1)
+            {
+                Console.WriteLine("");
+                GuessTheNumber();
+            }
         }
     }
 }
