@@ -21,18 +21,20 @@ namespace Zad5
 
             Console.WriteLine("Zagrajmy w grę...");
 
+            number = randomNumber.Next(1, 10);
+            Console.WriteLine("Komputer wylosował już liczbę z zakresu 1 do 10. Jaka to liczba?");
+
             do
             {
-                if (attempt >= 1)
-                    Console.WriteLine("Tym razem komputer Cię przechytrzył. Spróbuj jeszcze raz! :)");
-
-                number = randomNumber.Next(1, 10);
-                Console.WriteLine("Komputer wylosował już liczbę z zakresu 1 do 10. Jaka to liczba?");
-
                 isConvertable = Int32.TryParse(Console.ReadLine(), out userNumber);
 
                 if (isConvertable == false || userNumber > 10 || userNumber < 1)
-                    Console.WriteLine("Podano nieprawidłowe dane.");
+                    Console.WriteLine("Podano nieprawidłowe dane. Spróbuj jeszcze raz.");
+
+                if (userNumber > number)
+                    Console.WriteLine("Trochę mniej...");
+                else if (userNumber < number)
+                    Console.WriteLine("Trochę więcej...");
 
                 ++attempt;
             }
