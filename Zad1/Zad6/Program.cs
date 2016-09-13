@@ -19,21 +19,25 @@ namespace Zad6
 
         private static void PopulationSimulator()
         {
-            int cityT = 100000;
-            int cityB = 300000;
+            City cityT = new City();
 
-            double cityTinc = 0.03;
-            double cityBinc = 0.02;
+            cityT.population = 100000;
+            cityT.populationIncrease = 0.03;
+
+            City cityB = new City();
+
+            cityB.population = 300000;
+            cityB.populationIncrease = 0.02;
 
             do
             {
-                cityT += Convert.ToInt32(cityT * cityTinc);
-                populationT.Add(cityT);
+                cityT.population += Convert.ToInt32(cityT.population * cityT.populationIncrease);
+                populationT.Add(cityT.population);
 
-                cityB += Convert.ToInt32(cityB * cityBinc);
-                populationB.Add(cityB);
+                cityB.population += Convert.ToInt32(cityB.population * cityB.populationIncrease);
+                populationB.Add(cityB.population);
             }
-            while (cityB >= cityT);
+            while (cityB.population >= cityT.population);
 
             PrintSimulation();
         }
@@ -50,5 +54,11 @@ namespace Zad6
                 ++currentYear;
             }
         }
+    }
+
+    public class City
+    {
+        public int population { get; set; }
+        public double populationIncrease { get; set; }
     }
 }
